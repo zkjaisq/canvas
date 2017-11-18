@@ -1,0 +1,15 @@
+#canvas{
+    background: gray;
+    display: block;
+  }
+  
+  body{
+    margin: 0px;
+  }
+  button{
+      padding: 10px 5px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      border-radius: 5px;
+  }
