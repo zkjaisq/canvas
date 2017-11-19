@@ -4,6 +4,55 @@ autosetcanvassieze(canvas)
 div = document.createElement("div")
 canvas.appendChild(div)
 Listening(canvas)
+var Eraser = false
+eraser.onclick = function(){
+    Eraser = true
+    eraser.classList.add('active')
+    brash.classList.remove('active')
+
+}
+brash.onclick = function(){
+    Eraser = false
+    brash.classList.add('active')
+    eraser.classList.remove('active')
+}
+black.onclick = function(){
+    black.classList.add('active')
+    context.strokeStyle = 'black'
+    green.classList.remove('active')
+    red.classList.remove('active')
+    pink.classList.remove('active')
+}
+red.onclick = function(){
+    red.classList.add('active')
+    context.strokeStyle = 'red'
+    black.classList.remove('active')
+    green.classList.remove('active')
+    pink.classList.remove('active')
+}
+green.onclick = function(){
+    green.classList.add('active')
+    context.strokeStyle = 'green'
+    black.classList.remove('active')
+    red.classList.remove('active')
+    pink.classList.remove('active')
+}
+pink.onclick = function(){
+    pink.classList.add('active')
+    context.strokeStyle = 'pink'
+    black.classList.remove('active')
+    green.classList.remove('active')
+    red.classList.remove('active')
+}
+clear.onclick = function(){
+context.clearRect(0, 0, canvas.width, canvas.height)
+}
+download.onclick=function(){
+    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+    console.log(image)
+    window.location.href=image; 
+}
+
 //=====
 function autosetcanvassieze(canvas){
     CnavasSize()
@@ -16,11 +65,6 @@ function CnavasSize() {
     var pageHeight = document.documentElement.clientHeight
     canvas.width = pageWidth
     canvas.height = pageHeight
-}
-function drawCicle(x, y, radius) {
-    context.beginPath();
-    context.arc(x, y, radius, 0, Math.PI * 2)
-    context.fill()
 }
 function drawLine(x1, y1, x2, y2) {
     context.beginPath()
@@ -35,7 +79,6 @@ function Listening(click){
     //特性检测，看是触屏设备还是pc端设备。
 if(document.body.ontouchstart!==undefined){
     canvas.ontouchstart= function(xxx){
-        console.log(xxx)
         var x = xxx.touches[0].clientX;
         var z = xxx.touches[0].clientY;
         Using=true
@@ -109,7 +152,4 @@ if(document.body.ontouchstart!==undefined){
 
 
 
-var Eraser = false
-eraser.onclick = function () {
-    Eraser = !Eraser
-}
+
