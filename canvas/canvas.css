@@ -32,9 +32,14 @@
   }
   #color{
     position: fixed;
-    top: 40px;
+    top: 60px;
     left: 16px;
 
+  }
+  #size{
+    position: fixed;
+    top: 30px;
+    right: 20px;
   }
   .icon {
     width: 1em; height: 1em;
@@ -43,12 +48,14 @@
     overflow: hidden;
   }
   #color>li{
-    border: 1px solid red;
     width: 30px;
     height: 30px;
-    border: 1px solid red;
     margin: 10px;
     border-radius: 50%;
+  }
+  #size>li{
+    margin: 10px;
+
   }
   #color li.active{
     transform: scale(1.2);
@@ -66,3 +73,13 @@
   #color li.pink{
     background-color: pink;
   }
+#size .thin{
+  width: 30px;
+  height: 5px;
+  background: black;
+}
+#size .thick{
+  width: 30px;
+  height: 10px;
+  background: black;
+}

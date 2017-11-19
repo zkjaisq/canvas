@@ -1,10 +1,12 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var lineWidth = 5
 autosetcanvassieze(canvas)
 div = document.createElement("div")
 canvas.appendChild(div)
 Listening(canvas)
 var Eraser = false
+
 eraser.onclick = function(){
     Eraser = true
     eraser.classList.add('active')
@@ -19,6 +21,7 @@ brash.onclick = function(){
 black.onclick = function(){
     black.classList.add('active')
     context.strokeStyle = 'black'
+    context.fillStyle = 'black'
     green.classList.remove('active')
     red.classList.remove('active')
     pink.classList.remove('active')
@@ -26,6 +29,7 @@ black.onclick = function(){
 red.onclick = function(){
     red.classList.add('active')
     context.strokeStyle = 'red'
+    context.fillStyle = 'red'
     black.classList.remove('active')
     green.classList.remove('active')
     pink.classList.remove('active')
@@ -33,6 +37,7 @@ red.onclick = function(){
 green.onclick = function(){
     green.classList.add('active')
     context.strokeStyle = 'green'
+    context.fillStyle = 'green'
     black.classList.remove('active')
     red.classList.remove('active')
     pink.classList.remove('active')
@@ -40,6 +45,7 @@ green.onclick = function(){
 pink.onclick = function(){
     pink.classList.add('active')
     context.strokeStyle = 'pink'
+    context.fillStyle = 'pink'
     black.classList.remove('active')
     green.classList.remove('active')
     red.classList.remove('active')
@@ -49,8 +55,16 @@ context.clearRect(0, 0, canvas.width, canvas.height)
 }
 download.onclick=function(){
     var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
-    console.log(image)
     window.location.href=image; 
+}
+thin.onclick = function(){
+    console.log(1)
+    lineWidth = 5
+
+}
+thick.onclick = function(){
+    console.log(10)
+  lineWidth = 10
 }
 
 //=====
@@ -66,10 +80,18 @@ function CnavasSize() {
     canvas.width = pageWidth
     canvas.height = pageHeight
 }
+function drawcicle(x1,y1,radius){
+    context.beginPath()
+    context.arc(x1,y1,radius,0,Math.PI*2,true)
+    context.fill()
+}
 function drawLine(x1, y1, x2, y2) {
+    context.lineJoin = 'round'
     context.beginPath()
     context.moveTo(x1, y1)
     context.lineTo(x2, y2)
+    context.lineWidth = lineWidth
+    
     context.stroke()
     context.closePath()
 }
@@ -85,6 +107,7 @@ if(document.body.ontouchstart!==undefined){
         if (Eraser) {
             context.clearRect(x-5,z-5,10,10)
         } else {
+            drawcicle(x,z,lineWidth/2)
             LastPoint = { "x": x, "y": z }
             
         }
@@ -102,7 +125,7 @@ if(document.body.ontouchstart!==undefined){
         else{
            
                 var newPoint = { "x": x, "y": z }
-                
+                drawcicle(x,z,lineWidth/2)
                 drawLine(LastPoint.x, LastPoint.y, newPoint.x, newPoint.y)
                 LastPoint = newPoint
            
@@ -135,7 +158,7 @@ if(document.body.ontouchstart!==undefined){
         else{
            
                 var newPoint = { "x": x, "y": z }
-                
+                drawcicle(x,z,lineWidth/2)
                 drawLine(LastPoint.x, LastPoint.y, newPoint.x, newPoint.y)
                 LastPoint = newPoint
            
