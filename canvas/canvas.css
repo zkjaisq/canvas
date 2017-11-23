@@ -1,5 +1,8 @@
 #canvas{
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  user-select: all;
     display: block;
   }
   *{
@@ -13,6 +16,9 @@
   ol,li{
     list-style: none;
     
+  }
+  .icon{
+    user-select: none;
   }
   .menu{
       position: fixed;
