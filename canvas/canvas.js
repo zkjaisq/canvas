@@ -11,12 +11,14 @@ eraser.onclick = function(){
     Eraser = true
     eraser.classList.add('active')
     brash.classList.remove('active')
+    color.classList.remove('click')
 
 }
 brash.onclick = function(){
     Eraser = false
     brash.classList.add('active')
     eraser.classList.remove('active')
+    color.classList.add('click')
 }
 black.onclick = function(){
     black.classList.add('active')
@@ -58,12 +60,10 @@ download.onclick=function(){
     window.location.href=image; 
 }
 thin.onclick = function(){
-    console.log(1)
     lineWidth = 5
 
 }
 thick.onclick = function(){
-    console.log(10)
   lineWidth = 10
 }
 
@@ -113,7 +113,6 @@ if(document.body.ontouchstart!==undefined){
         }
     }
     canvas.ontouchmove= function(xxx){
-        console.log(xxx)
         var x =xxx.touches[0].clientX;
         var z =xxx.touches[0].clientY;
         if(!Using){return}

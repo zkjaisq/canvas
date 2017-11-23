@@ -36,11 +36,15 @@
     transform: scale(1.2);
     
   }
-  #color{
+  
+  .color{
     position: fixed;
     top: 60px;
-    left: 16px;
-
+    left: 15px;
+    display: none;
+  }
+  .color.click{
+    display: block;
   }
   #size{
     position: fixed;
@@ -53,7 +57,7 @@
     fill: currentColor;
     overflow: hidden;
   }
-  #color>li{
+  .color>li{
     width: 30px;
     height: 30px;
     margin: 10px;
@@ -63,20 +67,20 @@
     margin: 10px;
 
   }
-  #color li.active{
+  .color li.active{
     transform: scale(1.2);
 
   }
-  #color li.black{
+  .color li.black{
     background: black;
   }
-  #color li.red{
+  .color li.red{
     background-color: red;
   }
-  #color li.green{
+  .color li.green{
     background-color: green;
   }
-  #color li.pink{
+  .color li.pink{
     background-color: pink;
   }
 #size .thin{
